@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaTrashAlt, FaRegEdit, FaRegCheckCircle } from 'react-icons/fa';
 
-const TodoList = ({todo,index,removeTodo, editTodo,markLine}) => {
+const TodosList = ({todo,index,removeTodo, editTodo,markLine}) => {
   return (
     <div>
         <h1 className={todo.markTodo?'marked':'unMarked'}>{todo.text}<FaTrashAlt onClick={() => removeTodo(index)}/><FaRegCheckCircle onClick={() => markLine(index)}/>
@@ -10,4 +10,4 @@ const TodoList = ({todo,index,removeTodo, editTodo,markLine}) => {
   ) 
 }
 
-export default TodoList;
+export default TodosList;
