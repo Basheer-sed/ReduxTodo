@@ -7,6 +7,14 @@
   pointer-events: none;
 }
 
+.marked{
+   text-decoration: line-through;
+}
+
+.unMarked{
+  color: black;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
