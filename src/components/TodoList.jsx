@@ -1,13 +1,58 @@
-import React from 'react'
-import { FaTrashAlt, FaRegEdit, FaRegCheckCircle } from 'react-icons/fa';
+import React from 'react';
+import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import CheckSharpIcon from '@mui/icons-material/CheckSharp';
+import { Box, Typography } from '@mui/material';
 
-const TodoList = ({todo,index,removeTodo, editTodo,markLine}) => {
+const TodosList = ({ todo, index, removeTodo, editTodo, markLine }) => {
+  const handleEdit = () => {
+    editTodo(todo.text, index);
+  };
+
+  const handleDelete = () => {
+    removeTodo(index);
+  };
+
+  const handleMark = () => {
+    markLine(index);
+  };
+
   return (
-    <div>
-        <h1 className={todo.markTodo?'marked':'unMarked'}>{todo.text}<FaTrashAlt onClick={() => removeTodo(index)}/><FaRegCheckCircle onClick={() => markLine(index)}/>
-        <FaRegEdit onClick={() => {editTodo(todo.text,index)}}/></h1>
-    </div>
-  ) 
-}
+    <Box display="flex" maxWidth="400px">
+      <Typography className={todo.markTodo ? 'marked' : 'unMarked'} sx={{ width: '100%' }}>
+        {todo.text}
+      </Typography>
+      <Box display="flex" justifyContent="flex-end">
+        <EditRoundedIcon
+          onClick={handleEdit}
+          sx={{
+            cursor: 'pointer',
+            '&:hover': {
+              color: 'green',
+            },
+          }}
+        />
+        <DeleteRoundedIcon
+          onClick={handleDelete}
+          sx={{
+            cursor: 'pointer',
+            '&:hover': {
+              color: 'red',
+            },
+          }}
+        />
+        <CheckSharpIcon
+          onClick={handleMark}
+          sx={{
+            cursor: 'pointer',
+            '&:hover': {
+              color: 'lightgreen',
+            },
+          }}
+        />
+      </Box>
+    </Box>
+  );
+};
 
-export default TodoList;
+export default TodosList;
