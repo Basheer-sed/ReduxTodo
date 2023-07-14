@@ -13,19 +13,12 @@ const todoSlice = createSlice({
         addTodo: (state, action) =>{
             state.todos.push(action.payload)
         },
-        // updateTodo: (state, action) => {
-        //     const { text, editStatus, markTodo } = action.payload;
-        //     const todoIndex = state.todos.findIndex((todo) => todo.editStatus);
-        //     if (todoIndex !== -1) {
-        //       state.todos[todoIndex] = { text, editStatus, markTodo };
-        //     }
-        //   },
         deleteTodo: (state, action) => {
             const todoIndex = action.payload;
             state.todos = state.todos.filter((todo, index) => index !== todoIndex);
           },  
         editTodo: (state, action) => {
-            const {selectValue,index}=action.payload
+            const {index}=action.payload
             state.selectedTodo=action.payload
             state.todos[index].editStatus=true
         },
